@@ -1,0 +1,127 @@
+/* themes.css - Enhanced Professional Themes */
+
+:root {
+    /* Light Theme - Modern & Professional */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-nav: rgba(255, 255, 255, 0.85);
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-accent: #6366f1;
+    --text-accent-hover: #4f46e5;
+
+    --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
+
+    /* Enhanced Shadow System */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+    /* Button Styles */
+    --btn-primary-bg: #6366f1;
+    --btn-primary-text: #ffffff;
+    --btn-hover-bg: #4f46e5;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-blur: 10px;
+
+    /* Typography */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme - Sleek & Modern */
+    --bg-body: #0a0e1a;
+    --bg-card: #151b2e;
+    --bg-nav: rgba(21, 27, 46, 0.85);
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-accent: #818cf8;
+    --text-accent-hover: #a5b4fc;
+
+    --border-color: #1e293b;
+    --border-light: #334155;
+
+    /* Enhanced Shadow System */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 30px rgba(129, 140, 248, 0.4);
+
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+    /* Button Styles */
+    --btn-primary-bg: #818cf8;
+    --btn-primary-text: #0a0e1a;
+    --btn-hover-bg: #a5b4fc;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(21, 27, 46, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: 12px;
+}
+
+[data-theme="gradient"] {
+    /* Gradient Theme - Creative & Vibrant */
+    --bg-body: #0d0221;
+    --bg-card: #1a0b2e;
+    --bg-nav: rgba(26, 11, 46, 0.85);
+    --bg-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+
+    --text-primary: #ffffff;
+    --text-secondary: #c4b5fd;
+    --text-accent: #f093fb;
+    --text-accent-hover: #f5576c;
+
+    --border-color: #2d1b4e;
+    --border-light: #3d2b5e;
+
+    /* Enhanced Shadow System */
+    --shadow-sm: 0 1px 2px 0 rgba(240, 147, 251, 0.1);
+    --shadow-soft: 0 4px 20px rgba(240, 147, 251, 0.2);
+    --shadow-md: 0 10px 30px rgba(240, 147, 251, 0.25);
+    --shadow-hover: 0 20px 40px rgba(240, 147, 251, 0.35);
+    --shadow-glow: 0 0 40px rgba(240, 147, 251, 0.5);
+
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+    /* Button Styles */
+    --btn-primary-bg: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --btn-primary-text: #ffffff;
+    --btn-hover-bg: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(26, 11, 46, 0.6);
+    --glass-border: rgba(240, 147, 251, 0.2);
+    --glass-blur: 15px;
+}

@@ -1,0 +1,188 @@
+/* admin.css */
+
+/* Reusing main variables for consistency but adding specific admin styles */
+:root {
+    --admin-bg-sidebar: #1e293b;
+    --admin-text-sidebar: #cbd5e1;
+    --admin-sidebar-hover: #334155;
+    --admin-bg-body: #f1f5f9;
+}
+
+body.admin-body {
+    background-color: var(--admin-bg-body);
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 250px;
+    background-color: var(--admin-bg-sidebar);
+    color: var(--admin-text-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.admin-sidebar h2 {
+    color: #fff;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.admin-nav-item {
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-nav-item:hover,
+.admin-nav-item.active {
+    background-color: var(--admin-sidebar-hover);
+    color: #fff;
+}
+
+.admin-user {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Main Content */
+.admin-main {
+    flex: 1;
+    margin-left: 250px;
+    padding: 2rem;
+    background: var(--bg-body);
+    /* inherit form theme if needed, or override */
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Data Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+/* Forms in Admin */
+.admin-form-group {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.admin-input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.admin-action-btn {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+.btn-edit {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-save {
+    background: #22c55e;
+    color: white;
+    padding: 0.6rem 1.2rem;
+}
+
+/* Login Page */
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+}
+
+.login-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
