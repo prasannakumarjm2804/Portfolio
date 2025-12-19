@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | John Doe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient-primary);
+            top: 0;
+            bottom: 0;
+            left: 30px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px 10px 70px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 21px;
+            background: var(--bg-card);
+            border: 4px solid var(--text-accent);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 4px var(--bg-body);
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--text-accent);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-accent);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+        }
+
+        .timeline-role {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .timeline-company {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .company-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .timeline-desc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-item::after {
+                left: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">John<span class="text-accent">.Dev</span></a>
+            <button class="nav-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link active">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title animate-fade-up">Career Journey</h1>
+
+            <div class="timeline animate-fade-up delay-100" id="experience-container">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Education Section -->
+            <h2 class="section-title animate-fade-up delay-200" style="font-size: 2rem; margin-top: 4rem;">Education
+            </h2>
+            <div class="timeline animate-fade-up delay-300">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-calendar"></i> 2015 - 2019</div>
+                        <h3 class="timeline-role">BSc in Computer Science</h3>
+                        <div class="timeline-company">
+                            <div class="company-logo">UT</div>
+                            University of Technology
+                        </div>
+                        <p class="timeline-desc">Graduated with Honors. Specialized in Human-Computer Interaction and
+                            Software Engineering. Completed capstone project on modern web application development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const fullData = await fetchData();
+            const data = fullData.experience;
+            const container = document.getElementById('experience-container');
+            container.innerHTML = '';
+
+            data.forEach(item => {
+                const descItems = item.desc.map(d => `<li><i class="fas fa-check-circle" style="color: var(--text-accent); margin-right: 0.5rem;"></i>${d}</li>`).join('');
+
+                // Extract company initials for logo
+                const initials = item.company.split(' ').map(word => word[0]).join('').substring(0, 2);
+
+                const html = `
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date"><i class="fas fa-calendar"></i> ${item.date}</div>
+                            <h3 class="timeline-role">${item.role}</h3>
+                            <div class="timeline-company">
+                                <div class="company-logo">${initials}</div>
+                                ${item.company}
+                            </div>
+                            <ul class="timeline-desc" style="list-style: none; padding-left: 0;">
+                                ${descItems}
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="badge">React</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                 `;
+                container.innerHTML += html;
+            });
+        });
+    </script>
+</body>
+
+</html>

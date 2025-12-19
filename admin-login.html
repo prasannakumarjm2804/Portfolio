@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Admin Panel</h2>
+            <form id="login-form">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                    <input type="email" id="email" class="admin-input" placeholder="admin@example.com"
+                        value="admin@example.com" required style="margin-top:0;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
+                    <input type="password" id="password" class="admin-input" placeholder="admin123" value="admin123"
+                        required style="margin-top:0;">
+                </div>
+                <button type="submit" class="btn-save" style="width: 100%; cursor: pointer;">Login</button>
+            </form>
+            <p style="margin-top: 1rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+                Demo Credentials:<br>admin@example.com / admin123
+            </p>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <button onclick="testConnection()"
+                    style="background: none; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; border-radius: 4px;">
+                    <i class="fas fa-plug"></i> Test AWS Connection
+                </button>
+                <br><br>
+                <a href="index.html" style="color: #3b82f6; text-decoration: none; font-size: 0.9rem;">&larr; Back to
+                    Website</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        const form = document.getElementById('login-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (login(email, password)) {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+
+        // redirect if already logged in
+        if (isAuthenticated()) {
+            window.location.href = 'admin-dashboard.html';
+        }
+
+        async function testConnection() {
+            const btn = document.querySelector('button[onclick="testConnection()"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing...';
+
+            try {
+                // We use the variable from data.js
+                // Note: Ensure data.js is loaded before this script runs (it is, line 41)
+                console.log("Testing connection to:", API_URL);
+                const start = Date.now();
+                const response = await fetch(API_URL);
+                const duration = Date.now() - start;
+
+                if (response.ok) {
+                    const text = await response.text();
+                    console.log("Response:", text);
+                    alert(`✅ Connection Successful!\n\nStatus: ${response.status}\nTime: ${duration}ms\nResponse size: ${text.length} chars\n\nDatabase is reachable.`);
+                } else {
+                    alert(`⚠️ Connection Failed!\n\nStatus: ${response.status}\nStatus Text: ${response.statusText}`);
+                }
+            } catch (error) {
+                console.error(error);
+                alert(`❌ Connection Error!\n\n${error.message}\n\nCheck console for details.`);
+            } finally {
+                btn.innerHTML = originalText;
+            }
+        }
+    </script>
+</body>
+
+</html>

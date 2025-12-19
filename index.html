@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | Frontend Developer</title>
+    <meta name="description"
+        content="Portfolio of John Doe, a Senior Frontend Developer specializing in React, UI/UX, and modern web technologies.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        /* Hero Specific Styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .hero-content h2 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        /* Social Links */
+        .hero-social {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">John<span class="text-accent">.Dev</span></a>
+
+            <button class="nav-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="animate-fade-up">
+                <h1 class="text-gradient-animated" id="hero-title">Hi, I'm John Doe</h1>
+                <h2 id="hero-subtitle">Frontend Developer & UI/UX Enthusiast</h2>
+                <p id="hero-tagline">Creating beautiful, responsive, and user-friendly web experiences with modern
+                    technologies.</p>
+
+                <div class="cta-group">
+                    <a href="projects.html" class="btn btn-gradient" id="hero-cta">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="#" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-grid animate-fade-up delay-200">
+                <div class="stat-card hover-lift">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Exp</div>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Awards</div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="hero-social animate-fade-up delay-300">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Dribbble">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Dynamic Content Loading
+        document.addEventListener('DOMContentLoaded', async () => {
+            const fullData = await fetchData();
+            const data = fullData.hero;
+
+            if (data) {
+                document.getElementById('hero-title').innerText = data.title;
+                document.getElementById('hero-subtitle').innerText = data.subtitle;
+                document.getElementById('hero-tagline').innerText = data.tagline;
+                document.getElementById('hero-cta').innerHTML = `<i class="fas fa-code"></i> ${data.ctaText}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

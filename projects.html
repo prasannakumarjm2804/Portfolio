@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | John Doe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            padding-left: 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--text-accent);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            padding: 0.625rem 1.75rem;
+            border-radius: 25px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: var(--transition-bounce);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-image {
+            height: 220px;
+            background: var(--gradient-primary);
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image i {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">John<span class="text-accent">.Dev</span></a>
+            <button class="nav-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title animate-fade-up">Featured Projects</h1>
+
+            <!-- Search Bar -->
+            <div class="search-container animate-fade-up delay-100" style="position: relative;">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="project-search"
+                    placeholder="Search projects by name or technology...">
+            </div>
+
+            <div class="filter-container animate-fade-up delay-200">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> All</button>
+                <button class="filter-btn" data-filter="react"><i class="fab fa-react"></i> React</button>
+                <button class="filter-btn" data-filter="javascript"><i class="fab fa-js"></i> JavaScript</button>
+                <button class="filter-btn" data-filter="uiux"><i class="fas fa-palette"></i> UI/UX</button>
+            </div>
+
+            <div class="projects-grid animate-fade-up delay-300" id="projects-container">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const fullData = await fetchData();
+            const data = fullData.projects;
+            const container = document.getElementById('projects-container');
+            container.innerHTML = '';
+
+            data.forEach(project => {
+                const techLabels = project.tech.map(t => `<span class="badge">${t}</span>`).join('');
+
+                const html = `
+                    <article class="card hover-lift project-card" data-category="${project.category}" data-title="${project.title.toLowerCase()}" data-tech="${project.tech.join(' ').toLowerCase()}">
+                        <div class="project-image">
+                            <i class="${project.icon || 'fas fa-code'} fa-4x"></i>
+                        </div>
+                        <h3 style="margin-bottom: 0.75rem; color: var(--text-primary); font-size: 1.25rem; font-weight: 700;">${project.title}</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.6;">
+                            ${project.desc}
+                        </p>
+                        <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            ${techLabels}
+                        </div>
+                        <div style="display: flex; gap: 0.75rem;">
+                            <a href="#" class="btn btn-gradient" style="padding: 0.5rem 1.25rem; font-size: 0.9rem; flex: 1;"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.9rem; flex: 1;"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </article>
+                 `;
+                container.innerHTML += html;
+            });
+
+            // Search functionality
+            document.getElementById('project-search').addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const projects = document.querySelectorAll('.project-card');
+
+                projects.forEach(project => {
+                    const title = project.dataset.title;
+                    const tech = project.dataset.tech;
+                    if (title.includes(searchTerm) || tech.includes(searchTerm)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | John Doe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .profile-image {
+            background: var(--bg-card);
+            aspect-ratio: 1/1;
+            border-radius: 16px;
+            border: 3px solid transparent;
+            background-image: linear-gradient(var(--bg-card), var(--bg-card)), var(--gradient-primary);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .interest-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--text-accent);
+        }
+
+        .interest-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">John<span class="text-accent">.Dev</span></a>
+            <button class="nav-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title animate-fade-up">About Me</h1>
+
+            <div class="about-grid animate-fade-up delay-100">
+                <!-- Profile Image -->
+                <div class="profile-image hover-lift">
+                    <i class="fas fa-user-circle fa-5x"></i>
+                </div>
+
+                <!-- About Content -->
+                <div>
+                    <h3 id="about-intro" style="font-size: 1.75rem; margin-bottom: 1rem; font-weight: 700;"></h3>
+                    <p id="about-bio" style="margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+                    </p>
+                    <p id="about-philosophy"
+                        style="margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.8;"></p>
+
+                    <h4 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: 600;">Career Focus:</h4>
+                    <ul id="about-focus" style="list-style: none; margin-bottom: 2rem;">
+                        <!-- Injected via JS -->
+                    </ul>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-gradient">
+                            <i class="fas fa-handshake"></i> Let's Work Together
+                        </a>
+                        <a href="#" class="btn btn-outline" download>
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="animate-fade-up delay-200">
+                <h2 class="section-title" style="font-size: 2rem; margin-top: 3rem;">Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="stat-card hover-lift">
+                        <div class="stat-number">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-label">Best Developer Award 2023</div>
+                    </div>
+                    <div class="stat-card hover-lift">
+                        <div class="stat-number">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="stat-label">AWS Certified</div>
+                    </div>
+                    <div class="stat-card hover-lift">
+                        <div class="stat-number">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-label">5.0 Client Rating</div>
+                    </div>
+                    <div class="stat-card hover-lift">
+                        <div class="stat-number">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="stat-label">100+ Open Source</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interests Section -->
+            <div class="animate-fade-up delay-300">
+                <h2 class="section-title" style="font-size: 2rem;">Interests & Hobbies</h2>
+                <div class="interests-grid">
+                    <div class="interest-card hover-scale">
+                        <div class="interest-icon"><i class="fas fa-palette"></i></div>
+                        <h4>Design</h4>
+                    </div>
+                    <div class="interest-card hover-scale">
+                        <div class="interest-icon"><i class="fas fa-camera"></i></div>
+                        <h4>Photography</h4>
+                    </div>
+                    <div class="interest-card hover-scale">
+                        <div class="interest-icon"><i class="fas fa-music"></i></div>
+                        <h4>Music</h4>
+                    </div>
+                    <div class="interest-card hover-scale">
+                        <div class="interest-icon"><i class="fas fa-plane"></i></div>
+                        <h4>Travel</h4>
+                    </div>
+                    <div class="interest-card hover-scale">
+                        <div class="interest-icon"><i class="fas fa-book"></i></div>
+                        <h4>Reading</h4>
+                    </div>
+                    <div class="interest-card hover-scale">
+                        <div class="interest-icon"><i class="fas fa-gamepad"></i></div>
+                        <h4>Gaming</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="animate-fade-up delay-400" style="margin-top: 4rem; text-align: center;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Connect With Me</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Dribbble">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="CodePen">
+                        <i class="fab fa-codepen"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const fullData = await fetchData();
+            const data = fullData.about;
+
+            document.getElementById('about-intro').innerText = data.intro;
+            document.getElementById('about-bio').innerText = data.bio;
+            document.getElementById('about-philosophy').innerText = data.philosophy;
+
+            const focusList = document.getElementById('about-focus');
+            focusList.innerHTML = '';
+            data.focus.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle" style="color: var(--text-accent); margin-right: 0.5rem;"></i>${item}`;
+                li.style.marginBottom = '0.75rem';
+                li.style.color = 'var(--text-secondary)';
+                focusList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+
+</html>
